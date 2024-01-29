@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-import Card from "./Card";
+import Card from "../Card/Card";
 
 function Column({title}) {
     // Компонент возвращает JSX , который представляет собой HTML-разметку
