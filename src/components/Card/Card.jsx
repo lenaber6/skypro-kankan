@@ -1,7 +1,7 @@
 import * as S from "./Card.styled.js";
 import {topicHeader} from "../../lib/topic.js";
 
-function Card({theme, CardTitle, date}) {
+function Card({theme, cardTitle, date}) {
     // console.log(topicHeader);
     // console.log(topicHeader[theme]);
     return (
@@ -24,7 +24,7 @@ function Card({theme, CardTitle, date}) {
                 </S.CardsGroup>
                 <S.CardContent>
                     <a href="#" target="_blank">
-                        <S.CardTitle>{CardTitle}</S.CardTitle>
+                        <S.CardTitle>{cardTitle}</S.CardTitle>
                     </a>
                     <S.CardDate>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">

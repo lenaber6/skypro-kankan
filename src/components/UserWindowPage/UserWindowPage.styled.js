@@ -132,9 +132,15 @@ export const HeaderUser = styled.div`
   margin: -6px 0 0 5px;
   padding: 0;
 }
+:hover {
+  color: #33399b;
+}
+:hover::after {
+  border-left-color: #33399b;
+  border-bottom-color: #33399b;
+}
 `;
 export const ExitButton = styled.button`
-  padding: 5px 10px;
 button {
   width: 72px;
   height: 30px;
@@ -150,5 +156,15 @@ a {
   background-color: #33399b;
   color: #FFFFFF;
 }
-
 `;
+// export const HeaderLogoShowLight = styled.div`
+// img {
+//   width: 85px;
+// }
+// `;
+// export const HeaderLogoDark = styled.div`
+//  display: none;
+// img {
+//   width: 85px;
+// }
+// `;

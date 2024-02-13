@@ -18,7 +18,7 @@ export const topicStyles = {
   };
   
 export const topicHeader = {
-    "Web Designe": "_orange",
+    "Web Design": "_orange",
     "Research": "_green",
-    "Copiwriting": "_purple",
+    "Copywriting": "_purple",
 }
