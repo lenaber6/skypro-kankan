@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Container } from "../../styled/common/common.styled";
-import * as S from "./UserWindowPage.styled.js";
+import { Button, Container } from "../../styled/common/common.styled.js";
+import * as S from "./Header.styled.js";
+import {Link} from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes.js";
 
-function UserWindowPage({ addCard }) {
+function Header({ addCard }) {
   // eslint-disable-next-line no-undef
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
@@ -47,9 +49,13 @@ function UserWindowPage({ addCard }) {
                           name="checkbox"
                         />
                       </S.PopUserSetTheme>
+                      <Link to={appRoutes.EXIT}>
                       <S.ExitButton>
-                        <a href="#popExit">Выйти</a>
+                        <Button>
+                        Выйти
+                        </Button>
                       </S.ExitButton>
+                      </Link>
                     </S.HeaderPopUserSet>
                   )}
                 </S.HeaderNav>
@@ -59,4 +65,4 @@ function UserWindowPage({ addCard }) {
   );
 }
 // Экспорт компонента, чтобы его можно было использовать в других частях приложения
-export default UserWindowPage;
+export default Header;

@@ -1,7 +1,8 @@
 import * as S from "./Card.styled.js";
 import {topicHeader} from "../../lib/topic.js";
+import { Link } from "react-router-dom";
 
-function Card({theme, cardTitle, date}) {
+function Card({theme, cardTitle, date, id}) {
     // console.log(topicHeader);
     // console.log(topicHeader[theme]);
     return (
@@ -23,9 +24,9 @@ function Card({theme, cardTitle, date}) {
                     </a>
                 </S.CardsGroup>
                 <S.CardContent>
-                    <a href="#" target="_blank">
+                    <Link to={`task/${id}`}>
                         <S.CardTitle>{cardTitle}</S.CardTitle>
-                    </a>
+                    </Link>
                     <S.CardDate>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <g clipPath="url(#clip0_1_415)">
