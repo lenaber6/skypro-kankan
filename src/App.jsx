@@ -7,7 +7,7 @@ import UserWindowPage from "./components/UserWindowPage/UserWindowPage";
 import MainContent from "./components/MainContent/MainContent";
 import Column from "./components/Column/Column";
 import { cardList } from "./data";
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 
 
 const statusList = [
@@ -40,6 +40,7 @@ function App() {
   }
   return (
     <div className="wrapper">
+      
       {/* pop-up start*/}
       <ExitPage />
       <CreatTaskPage />
@@ -53,7 +54,6 @@ function App() {
           <Column
             title={status}
             key={status}
-            // eslint-disable-next-line no-undef
             cardList={cards.filter((card) => card.status === status)}
           />
         ))}
