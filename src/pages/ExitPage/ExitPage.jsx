@@ -12,9 +12,13 @@ export default function ExitPage({logout}) {
           </S.PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
             <S.PopExitFormGroup>
-              <S.PopExitYes onClick={logout} id="exitYes"><Link to={appRoutes.SIGNIN}>Да, выйти</Link></S.PopExitYes>
-              <S.PopExitNo id="exitNo"><Link to={appRoutes.MAIN}>Нет, остаться</Link>
+            <Link to={appRoutes.SIGNIN}>
+              <S.PopExitYes onClick={logout} id="exitYes">Да, выйти</S.PopExitYes>
+              </Link>
+              <Link to={appRoutes.MAIN}>
+              <S.PopExitNo id="exitNo">Нет, остаться
               </S.PopExitNo>
+              </Link>
             </S.PopExitFormGroup>
           </form>
         </S.PopExitBlock>

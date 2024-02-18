@@ -1,6 +1,7 @@
 import "../../App.css";
 import { appRoutes } from "../../lib/appRoutes";
 import { Link } from "react-router-dom";
+import { Button } from "../../styled/common/common.styled";
 
 export default function SigninPage({login}) {
     return (
@@ -14,7 +15,9 @@ export default function SigninPage({login}) {
                         <form className="modal__form-login" id="formLogIn" action="#">
                             <input className="modal__input" type="text" name="login" id="formlogin" placeholder="Эл. почта"></input>
                             <input className="modal__input" type="password" name="password" id="formpassword" placeholder="Пароль"></input> 
-                            <button className="modal__btn-enter _hover01" id="btnEnter" onClick={login}><Link to={appRoutes.MAIN}>Войти</Link></button>
+                            <Link to={appRoutes.MAIN}>
+                            <span className="modal__btn-enter _hover01" id="btnEnter" onClick={login}><Button>Войти </Button></span>
+                            </Link>
                             <div className="modal__form-group">
                                 <p>Нужно зарегистрироваться?</p>
                                 <link to={appRoutes.REGISTER}>Регистрируйтесь здесь</link>
