@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { useState } from "react";
 import "./App.css";
-import SigninPage from "./pages/SigninPage/SigninPage";
+import SigninPage from "./pages/SignInPage/SigninPage";
 
 export default function App() {
   const [user, setUser] = useState(true);
@@ -29,10 +29,10 @@ export default function App() {
       {/* Сначала идут приватные маршруты с помощью Outlet, а потом общедоступные */}
       {/* Пропс user вызывает пользователя */}
       <Route element={<PrivateRoute user={user} />}>
-        <Route path={appRoutes.MAIN} element={<MainPage />}>
+        <Route path={appRoutes.MAIN} element={<MainPage />} >
           <Route path={appRoutes.TASK} element={<TaskPage />} />
           <Route  path={appRoutes.EXIT} element={<ExitPage logout={logout}/>} />
-        </Route>
+          </Route>
       </Route>
       <Route  path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />
       <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
