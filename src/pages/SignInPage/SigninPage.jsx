@@ -20,7 +20,7 @@ export default function SigninPage({login}) {
                             </Link>
                             <div className="modal__form-group">
                                 <p>Нужно зарегистрироваться?</p>
-                                <link to={appRoutes.REGISTER}>Регистрируйтесь здесь</link>
+                                <Link to={appRoutes.REGISTER}>Регистрируйтесь здесь</Link>
                             </div>
                         </form>
                     </div>
