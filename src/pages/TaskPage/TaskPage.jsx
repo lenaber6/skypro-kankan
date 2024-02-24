@@ -1,4 +1,4 @@
-function CreatTaskPage() {
+export default function TaskPage() {
     // Компонент возвращает JSX , который представляет собой HTML-разметку
     return (<div className="pop-new-card" id="popNewCard">	
     <div className="pop-new-card__container">
@@ -109,7 +109,6 @@ function CreatTaskPage() {
         </div>
     </div>
 </div>
-</div>)
+</div>
+)
 }
-// Экспорт компонента, чтобы его можно было использовать в других частях приложения
-export default  CreatTaskPage;

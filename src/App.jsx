@@ -1,71 +1,42 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
+// Здесь остаётся только маршрутизация - работа со страницами
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { appRoutes } from "./lib/appRoutes";
+import NotFoundPage404 from "./pages/NotFoundPage404/NotFoundPage404";
+import ExitPage from "./pages/ExitPage/ExitPage";
+import MainPage from "./pages/MainPage/MainPage";
+import TaskPage from "./pages/TaskPage/TaskPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { useState } from "react";
 import "./App.css";
-import ExitPage from "./components/ExitPage/ExitPage";
-import CreatTaskPage from "./components/CreatTaskPage/CreatTaskPage";
-import EditTaskPage from "./components/EditTaskPage/EditTaskPage";
-import UserWindowPage from "./components/UserWindowPage/UserWindowPage";
-import MainContent from "./components/MainContent/MainContent";
-import Column from "./components/Column/Column";
-import { cardList } from "./data";
-import {useState, useEffect} from 'react';
+import SigninPage from "./pages/SignInPage/SigninPage";
 
+export default function App() {
+  const [user, setUser] = useState(true);
+  const navigate = useNavigate();
 
-const statusList = [
-  "Без статуса",
-  "Нужно сделать",
-  "В работе",
-  "Тестирование",
-  "Готово",
-];
+  function login() {
+    setUser(true);
+    navigate(appRoutes.MAIN);
+  }
+  function logout() {
+    setUser(false);
+    navigate(appRoutes.SIGNIN);
 
-function App() {
-  const [cards, setCards] = useState(cardList);
-  // eslint-disable-next-line no-undef
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 секунды задержки
-  }, []);
-  function addCard() {
-    // Логика добавления карточки
-    const newCard = {
-      id: cards.length +1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    }
-    setCards([...cards, newCard]);
   }
   return (
-    <div className="wrapper">
-      
-      {/* pop-up start*/}
-      <ExitPage />
-      <CreatTaskPage />
-      <EditTaskPage />
-
-      {/* pop-up end*/}
-
-      <UserWindowPage addCard={addCard}/>
-      {isLoading ? "Загрузка..." : (<MainContent>
-        {statusList.map((status) => (
-          <Column
-            title={status}
-            key={status}
-            cardList={cards.filter((card) => card.status === status)}
-          />
-        ))}
-        {/*<Column title={"Без статуса"} />
-        <Column title={"Нужно сделать"} />
-        <Column title={"В работе"} />
-        <Column title={"Тестирование"} />
-  <Column title={"Готово"} />*/}
-      </MainContent>)}
-      
-    </div>
+    <Routes>
+      {/* Сначала идут приватные маршруты с помощью Outlet, а потом общедоступные */}
+      {/* Пропс user вызывает пользователя */}
+      <Route element={<PrivateRoute user={user} />}>
+        <Route path={appRoutes.MAIN} element={<MainPage />} >
+          <Route path={appRoutes.TASK} element={<TaskPage />} />
+          <Route  path={appRoutes.EXIT} element={<ExitPage logout={logout}/>} />
+          </Route>
+      </Route>
+      <Route  path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />
+      <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
+      <Route path={appRoutes.NOT_FOUND_404} element={<NotFoundPage404 />} />
+    </Routes>
   );
 }
-
-export default App;

@@ -140,15 +140,8 @@ export const HeaderUser = styled.div`
   border-bottom-color: #33399b;
 }
 `;
-export const ExitButton = styled.button`
-button {
-  width: 72px;
-  height: 30px;
-  background: transparent;
-  color: #565EEF;
-  border-radius: 44px;
-  border: 1px solid #565EEF;
-}
+export const ExitButton = styled.span`
+
 a {
   color: #565EEF;
 }
