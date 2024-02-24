@@ -2,19 +2,20 @@ import Card from "../Card/Card";
 import * as S from "./Column.styled";
 
 function Column({title, cardList}) {
-    // Компонент возвращает JSX , который представляет собой HTML-разметку
+
     return (
     <S.MainColumn>
     <S.ColumnTitle>
         <p>{title}</p>
     </S.ColumnTitle>
     <S.Cards>
-        {cardList.map((card) => <Card 
-        theme={card.theme} 
-        cardTitle={card.title} 
-        date={card.date}
-        key={card.id}
-        id={card.id}/>)}
+        {cardList.map((task) => 
+        <Card 
+        topic={task.topic} 
+        title={task.title} 
+        date={task.date}
+        key={task._id}
+        id={task._id}/>)}
         {/* <Card theme={"Web design"} cardTitle={"Новая задача"}/>
     
         <Card theme={"Research"} cardTitle={"Новая задача"}/>
