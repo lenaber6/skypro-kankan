@@ -1,9 +1,10 @@
 import "../../App.css";
 import { appRoutes } from "../../lib/appRoutes";
 import { Link } from "react-router-dom";
-import { Button } from "../../styled/common/common.styled";
+import { Button, WrapperRegisterSignin } from "../../styled/common/common.styled";
 import { useState } from "react";
 import { signIn } from "../../api";
+import * as S from "./SigninPage.styled";
 
 export default function SigninPage({login}) {
     const [loginData, setLoginData] = useState({login: "", password: ""})
@@ -24,9 +25,9 @@ await signIn(loginData).then((data) => {
 }
 
     return (
-        <div className="wrapper">
-            <div className="container-signin">
-                <div className="modal">
+        <WrapperRegisterSignin>
+            <S.ContainerSignIn>
+                <S.Modal>
                     <div className="modal__block">
                         <div className="modal__ttl">
                             <h2>Вход</h2>
@@ -43,8 +44,8 @@ await signIn(loginData).then((data) => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </S.Modal>
+            </S.ContainerSignIn>
+        </WrapperRegisterSignin>
     )
 }

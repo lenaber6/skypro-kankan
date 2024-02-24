@@ -1,5 +1,5 @@
 import * as S from "./RegisterPage.styled.js";
-import { WrapperRegister } from "../../styled/common/common.styled.js";
+import { WrapperRegisterSignin } from "../../styled/common/common.styled.js";
 import { appRoutes } from "../../lib/appRoutes.js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { registration } from "../../api.js";
 
 export default function RegisterPage({register}) {
   const [registerData, setRegisterData] = useState({
-    firstName: "",
+    name: "",
     login: "",
     password: "",
   });
@@ -28,18 +28,18 @@ export default function RegisterPage({register}) {
 	})
   }
   return (
-    <WrapperRegister>
+    <WrapperRegisterSignin>
       <S.ContainerSignUp>
         <S.Modal>
           <S.ModalBlock>
             <S.ModalTtl>Регистрация</S.ModalTtl>
             <S.ModalFormLogin id="formLogUp" action="#">
               <S.ModalInput
-                value={registerData.firstName}
+                value={registerData.name}
                 onChange={handleInputRegisterChange}
                 className="first-name"
                 type="text"
-                name="firstName"
+                name="name"
                 id="first-name"
                 placeholder="Имя"
               ></S.ModalInput>
@@ -79,6 +79,6 @@ export default function RegisterPage({register}) {
           </S.ModalBlock>
         </S.Modal>
       </S.ContainerSignUp>
-    </WrapperRegister>
+    </WrapperRegisterSignin>
   );
 }

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { getTodos, getUsersList } from "../../api";
+import { Wrapper } from "../../styled/common/common.styled";
 
 const statusList = [
   "Без статуса",
@@ -54,7 +55,7 @@ function MainPage({ user }) {
     setCards([...cards, newCard]);
   }
   return (
-    <div className="wrapper">
+    <Wrapper>
       {/* pop-up start*/}
       <Outlet />
 
@@ -74,7 +75,7 @@ function MainPage({ user }) {
           ))}
         </MainContent>
       )}
-    </div>
+    </Wrapper>
     // </>
   );
 }

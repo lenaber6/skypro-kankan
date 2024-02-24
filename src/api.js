@@ -1,4 +1,8 @@
 // const token = "bgc0b8awbwas6g5g5k5o5s5w606g37w3cc3bo3b83k39s3co3c83c03ck";
+export let token;
+export const setToken = (newToken) => {
+    token = newToken;
+};
 const mainHostUrl = "https://wedev-api.sky.pro/api/kanban";
 const userUrl = "https://wedev-api.sky.pro/api/user";
 // Документация API "КАНБАН"
@@ -84,11 +88,11 @@ Authorisation: `Bearer ${token}`,
 }
 
 //Регистрация
-export async function registration({ firstName, login,password}) {
+export async function registration({ name, login,password}) {
     return fetch(userUrl, {
         method: "POST",
         body: JSON.stringify({
-            firstName, 
+            name, 
             login,
             password,
         }),
