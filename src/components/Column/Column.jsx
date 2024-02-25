@@ -11,22 +11,12 @@ function Column({title, cardList}) {
     <S.Cards>
         {cardList.map((task) => 
         <Card 
+        date={task.date}
         topic={task.topic} 
         title={task.title} 
-        date={task.date}
         key={task._id}
         id={task._id}/>)}
-        {/* <Card theme={"Web design"} cardTitle={"Новая задача"}/>
-    
-        <Card theme={"Research"} cardTitle={"Новая задача"}/>
-    
-        <Card theme={"Web design"} cardTitle={"Новая задача"}/>
-        
-        <Card theme={"Research"} cardTitle={"Новая задача"}/>
-        
-        <Card theme={"Copywriting"} cardTitle={"Новая задача"}/> */}
     </S.Cards>
 </S.MainColumn>)
 }
-// Экспорт компонента, чтобы его можно было использовать в других частях приложения
 export default  Column;

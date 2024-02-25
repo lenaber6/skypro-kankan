@@ -21,11 +21,9 @@ function MainPage({ user }) {
   
   useEffect(() => {
     getUsersList ({ token: user.token }).then((todos) => {
-      console.log(todos);
+     // console.log(todos); // тут приходят users 3147
       setCards(todos.tasks);
-      setTimeout(() => {
         setIsLoading(false);
-      }, 2000); // 2 секунды задержки
     }).catch(() => {
       alert(`Error`);                                                                     
     })
@@ -33,11 +31,9 @@ function MainPage({ user }) {
 
   useEffect(() => {
     getTodos({ token: user.token }).then((todos) => {
-      console.log(todos);
+      //console.log(todos); // тут приходят tasks 47
       setCards(todos.tasks);
-      setTimeout(() => {
         setIsLoading(false);
-      }, 2000); // 2 секунды задержки
     }).catch(() => {
       alert(`Error`);                                                                     
     })
@@ -46,10 +42,10 @@ function MainPage({ user }) {
   function addCard() {
     // Логика добавления карточки
     const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
       date: "30.10.23",
+      id: cards.length + 1,
+      topic: "Web Design",
+      title: "Название задачи",
       status: "Без статуса",
     };
     setCards([...cards, newCard]);
@@ -70,7 +66,7 @@ function MainPage({ user }) {
             <Column
               title={status}
               key={status}
-              cardList={cards.filter((card) => card.status === status)}
+              cardList={cards?.filter((card) => card.status === status) || []}
             />
           ))}
         </MainContent>

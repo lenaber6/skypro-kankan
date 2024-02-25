@@ -2,7 +2,6 @@ import * as S from "./TaskPage.styled";
 import {Link} from "react-router-dom";
 
 export default function TaskPage() {
-    // Компонент возвращает JSX , который представляет собой HTML-разметку
     return (
     <S.PopNewCard id="popNewCard">	
     <S.PopNewCardContainer>

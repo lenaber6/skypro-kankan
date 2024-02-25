@@ -10,7 +10,7 @@ const userUrl = "https://wedev-api.sky.pro/api/user";
 export async function getTodos({token}) {
     const response = await fetch(mainHostUrl, {
         headers: {
-Authorisation: `Bearer ${token}`,
+Authorization: `Bearer ${token}`,
         },
     });
     if (!response.status === 200) {
@@ -19,11 +19,12 @@ Authorisation: `Bearer ${token}`,
     const data = await response.json();
     return data;
 }
+
 //Добавить задачу в список
 export async function postTodo({text, token}) {
     const response = await fetch(mainHostUrl, {
         headers: {
-Authorisation: `Bearer ${token}`,
+Authorization: `Bearer ${token}`,
         },
         method: "POST",
         body: JSON.stringify({
@@ -41,7 +42,7 @@ Authorisation: `Bearer ${token}`,
 export async function putTodo({text, id, token}) {
     const response = await fetch(mainHostUrl + `/${id}`, {
         headers: {
-Authorisation: `Bearer ${token}`,
+Authorization: `Bearer ${token}`,
         },
         method: "PUT",
         body: JSON.stringify({
@@ -58,7 +59,7 @@ Authorisation: `Bearer ${token}`,
 export async function deleteTodo({text, id, token}) {
     const response = await fetch(mainHostUrl + `/${id}`, {
         headers: {
-Authorisation: `Bearer ${token}`,
+Authorization: `Bearer ${token}`,
         },
         method: "DELETE",
         body: JSON.stringify({
@@ -77,7 +78,7 @@ Authorisation: `Bearer ${token}`,
 export async function getUsersList({token}) {
     const response = await fetch(userUrl, {
         headers: {
-Authorisation: `Bearer ${token}`,
+Authorization: `Bearer ${token}`,
         },
     });
     if (!response.status === 200) {
