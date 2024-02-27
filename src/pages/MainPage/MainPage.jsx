@@ -20,9 +20,9 @@ function MainPage({ user }) {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    getUsersList ({ token: user.token }).then((todos) => {
+    getUsersList ({ token: user.token }).then((cards) => {
      // console.log(todos); // тут приходят users 3147
-      setCards(todos.tasks);
+      setCards(cards.tasks);
         setIsLoading(false);
     }).catch(() => {
       alert(`Error`);                                                                     
