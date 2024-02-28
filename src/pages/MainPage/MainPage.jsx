@@ -4,7 +4,7 @@ import Column from "../../components/Column/Column";
 import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { Outlet } from "react-router-dom";
-import { getTodos, getUsersList } from "../../api";
+import { getTodos } from "../../api";
 import { Wrapper } from "../../styled/common/common.styled";
 
 const statusList = [
@@ -19,16 +19,6 @@ function MainPage({ user }) {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  useEffect(() => {
-    getUsersList ({ token: user.token }).then((cards) => {
-     // console.log(todos); // тут приходят users 3147
-      setCards(cards.tasks);
-        setIsLoading(false);
-    }).catch(() => {
-      alert(`Error`);                                                                     
-    })
-  }, [user]);
-
   useEffect(() => {
     getTodos({ token: user.token }).then((todos) => {
       //console.log(todos); // тут приходят tasks 47
