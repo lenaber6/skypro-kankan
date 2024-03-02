@@ -2,19 +2,14 @@ import * as S from "./Card.styled.js";
 import {topicHeader} from "../../lib/topic.js";
 import { Link } from "react-router-dom";
 
-function Card({theme, cardTitle, date, id}) {
-    // console.log(topicHeader);
-    // console.log(topicHeader[theme]);
+function Card({date, topic, title, _id}) {
     return (
         <S.CardsItem>
             <S.CardsCard>
                 <S.CardsGroup>
-                    <S.CardTopic $themeColor = {topicHeader[theme]}>
-                        <S.TopicText>{theme}</S.TopicText>
+                    <S.CardTopic $themeColor = {topicHeader[topic]}>
+                        <S.TopicText>{topic}</S.TopicText>
                     </S.CardTopic>
-                    {/* <div className="card__theme _orange">
-                        <p className="_orange">{topic}</p>
-                    </div> */}
                     <a href="#popBrowse" target="_self">
                         <S.CardBtn>
                             <div></div>
@@ -24,8 +19,8 @@ function Card({theme, cardTitle, date, id}) {
                     </a>
                 </S.CardsGroup>
                 <S.CardContent>
-                    <Link to={`task/${id}`}>
-                        <S.CardTitle>{cardTitle}</S.CardTitle>
+                    <Link to={`task/${_id}`}>
+                        <S.CardTitle>{title}</S.CardTitle>
                     </Link>
                     <S.CardDate>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
