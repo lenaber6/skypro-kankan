@@ -10,9 +10,9 @@ export const PopNewCard = styled.div`
   top: 0;
   left: 0;
   z-index: 6;
-  :target {
+  /* :target {
   display: block;
-}
+} */
 `;
 export const PopNewCardContainer = styled.div`
 width: 100%;
@@ -47,7 +47,7 @@ export const PopNewCardTtl = styled.h3`
   line-height: 24px;
   margin-bottom: 20px;
 `;
-export const PopNewCardClose = styled.a`
+export const PopNewCardClose = styled.span`
 position: absolute;
   top: 20px;
   right: 30px;
@@ -61,6 +61,8 @@ export const PopNewCardWrap = styled.div`
  display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 export const PopNewCardForm = styled.form`
 max-width: 370px;
