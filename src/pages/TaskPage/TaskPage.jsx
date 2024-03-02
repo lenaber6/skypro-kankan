@@ -7,7 +7,7 @@ import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
 export default function TaskPage() {
-  const {login} = useUser()
+  const {setTask} = useUser()
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -37,7 +37,7 @@ export default function TaskPage() {
     e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
-      login(data.user);
+      setTask(data.task);
     navigate(appRoutes.MAIN);
     });
   };
@@ -128,7 +128,11 @@ export default function TaskPage() {
                         </div>
                     </div>
                 </div> */}
-              <S.FormNewCreatButton onClick={handleFormSubmit} id="btnCreate">
+              <S.FormNewCreatButton onClick={() => {
+                handleFormSubmit();
+              handleTask();
+              }}
+               id="btnCreate">
                 Создать задачу
               </S.FormNewCreatButton>
             </S.PopNewCardWrap>
