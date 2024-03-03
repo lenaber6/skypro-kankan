@@ -6,7 +6,7 @@ import { useUser } from "../../hooks/useUser";
 import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
-export default function TaskPage() {
+export default function TaskPage({addCard}) {
   const { putDownTask } = useUser();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
@@ -16,8 +16,8 @@ export default function TaskPage() {
     description: "",
     topic: "",
   });
-  const handleFormSubmit = () => {
-    // e.preventDefault();
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
     const taskData = {
       ...newTask,
       date: selectedDate,
@@ -33,8 +33,8 @@ export default function TaskPage() {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async (e) => {
-     e.preventDefault();
+  const handleTask = async () => {
+    //  e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
       putDownTask(data.task);
@@ -42,6 +42,7 @@ export default function TaskPage() {
     });
   };
   const creatTaskBtn = () => {
+    addCard();
     handleFormSubmit();
     handleTask();
   };
@@ -51,7 +52,7 @@ export default function TaskPage() {
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
-            <Link to={"*"}>
+            <Link to={appRoutes.MAIN}>
               {" "}
               <S.PopNewCardClose>&#10006;</S.PopNewCardClose>
             </Link>

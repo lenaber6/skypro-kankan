@@ -4,7 +4,7 @@ import * as S from "./Header.styled.js";
 import {Link} from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes.js";
 
-function Header({ addCard }) {
+function Header() {
   // eslint-disable-next-line no-undef
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
@@ -26,12 +26,15 @@ function Header({ addCard }) {
                   </a>
                 </div>
                 <S.HeaderNav>
+                <Link to={appRoutes.TASK}>
                   <S.HeaderBtnMainNew
-                    onClick={addCard}
+                    //  onClick={addCard}
                     id="btnMainNew"
                   >
                     Создать новую задачу
                   </S.HeaderBtnMainNew>
+                  </Link>
+
                   <S.HeaderUser onClick={togglePopup}>
                     Ivan Ivanov
                   </S.HeaderUser>
