@@ -33,8 +33,8 @@ export default function TaskPage() {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async () => {
-    // e.preventDefault();
+  const handleTask = async (e) => {
+     e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
       putDownTask(data.task);
@@ -55,7 +55,10 @@ export default function TaskPage() {
               {" "}
               <S.PopNewCardClose>&#10006;</S.PopNewCardClose>
             </Link>
+          </S.PopNewCardContent>
+
             <S.PopNewCardWrap>
+
               <S.PopNewCardForm
                 className="form-new"
                 id="formNewCard"
@@ -89,10 +92,13 @@ export default function TaskPage() {
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}
               />
+            </S.PopNewCardWrap>
 
-              <div className="prod_checbox">
-                <p className="categories__p subttl">Категория</p>
-                <div className="radio-toolbar">
+              <S.CategoriesThemes>
+                <S.CategoriesP>Категория</S.CategoriesP>
+                </S.CategoriesThemes>
+                <S.CategoriesThemes>
+                  
                   <input
                     type="radio"
                     id="radio1"
@@ -100,7 +106,7 @@ export default function TaskPage() {
                     value="Web Design"
                     onChange={handleInputChange}
                   />
-                  <label htmlFor="radio1">Web Design</label>
+                  <S.WebDesignLabel htmlFor="radio1">Web Design</S.WebDesignLabel>
 
                   <input
                     type="radio"
@@ -109,7 +115,7 @@ export default function TaskPage() {
                     value="Research"
                     onChange={handleInputChange}
                   />
-                  <label htmlFor="radio2">Research</label>
+                  <S.ResearchLabel htmlFor="radio2">Research</S.ResearchLabel>
 
                   <input
                     type="radio"
@@ -118,28 +124,14 @@ export default function TaskPage() {
                     value="Copywriting"
                     onChange={handleInputChange}
                   />
-                  <label htmlFor="radio3">Copywriting</label>
-                </div>
-              </div>
-              {/* <div className="pop-new-card__categories categories">
-                    <p className="categories__p subttl">Категория</p>
-                    <div className="categories__themes">
-                        <div className="categories__theme _orange _active-category">
-                            <p className="_orange">Web Design</p>
-                        </div>
-                        <div className="categories__theme _green">
-                            <p className="_green">Research</p>
-                        </div>
-                        <div className="categories__theme _purple">
-                            <p className="_purple">Copywriting</p>
-                        </div>
-                    </div>
-                </div> */}
+                  <S.CopywritingLabel htmlFor="radio3">Copywriting</S.CopywritingLabel>
+                
+              </S.CategoriesThemes>
+              <S.ButtonDiv>
               <S.FormNewCreatButton onClick={creatTaskBtn} id="btnCreate">
                 Создать задачу
               </S.FormNewCreatButton>
-            </S.PopNewCardWrap>
-          </S.PopNewCardContent>
+              </S.ButtonDiv>
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>
     </S.PopNewCard>
