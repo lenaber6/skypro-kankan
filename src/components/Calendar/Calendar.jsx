@@ -8,7 +8,7 @@ export default function Calendar({selectedDate, setSelectedDate}) {
  
   let footer = <ChooseDate>Выберите срок исполнения</ChooseDate>;
   if (selectedDate) {
-    footer = <p>Вы выбрали {format(selectedDate, "PP", { locale: ru })}</p>;
+    footer = <ChooseDate>Вы выбрали {format(selectedDate, "PP", { locale: ru })}</ChooseDate>;
   }
   return (
     <Calendaric>
