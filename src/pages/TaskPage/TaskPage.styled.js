@@ -64,7 +64,7 @@ export const PopNewCardWrap = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `;
-export const PopNewCardForm = styled.form`
+export const PopNewCardForm = styled.div`
 max-width: 370px;
   width: 100%;
   display: block;
@@ -294,4 +294,22 @@ width: 22px;
 ._current {
   font-weight: 700;
 }
+`;
+export const PopNewCardCategories = styled.div`
+ display: none;
+  width: 100%;
+  min-width: 375px;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+`;
+export const CategoriesP = styled.p`
+  margin-bottom: 14px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 `;

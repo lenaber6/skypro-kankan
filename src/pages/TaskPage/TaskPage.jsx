@@ -7,7 +7,7 @@ import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
 export default function TaskPage() {
-  const {setTask} = useUser()
+  const { setTask } = useUser();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -37,9 +37,13 @@ export default function TaskPage() {
     e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
-      setTask(data.task);
-    navigate(appRoutes.MAIN);
+      creatTask(data.task);
+      navigate(appRoutes.MAIN);
     });
+  };
+  const creatTaskBtn = () => {
+    handleFormSubmit();
+    handleTask();
   };
   return (
     <S.PopNewCard id="popNewCard">
@@ -80,11 +84,14 @@ export default function TaskPage() {
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
+
               <Calendar
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}
               />
+
               <div className="prod_checbox">
+                <p className="categories__p subttl">Категория</p>
                 <div className="radio-toolbar">
                   <input
                     type="radio"
@@ -128,11 +135,7 @@ export default function TaskPage() {
                         </div>
                     </div>
                 </div> */}
-              <S.FormNewCreatButton onClick={() => {
-                handleFormSubmit();
-              handleTask();
-              }}
-               id="btnCreate">
+              <S.FormNewCreatButton onClick={creatTaskBtn} id="btnCreate">
                 Создать задачу
               </S.FormNewCreatButton>
             </S.PopNewCardWrap>

@@ -13,12 +13,13 @@ export const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
   const [task, setTask] = useState(getTaskFromLocalStorage());
 
-  function setTask() {
-    setUser(newTask);
+ 
+  const creatTask = (newTask) => {
+    setTask(newTask);
     localStorage.setItem("task", JSON.stringify(newTask));
   }
   return (
-    <UserContext.Provider value={{ user, login, logout, task }}>
+    <UserContext.Provider value={{ task }}>
       {children}
     </UserContext.Provider>
   );
