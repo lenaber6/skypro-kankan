@@ -2,12 +2,12 @@ import { useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
 import * as S from "./TaskPage.styled";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
+import { useTask } from "../../hooks/useUser";
 import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
-export default function TaskPage({addCard}) {
-  const { putDownTask } = useUser();
+export default function TaskPage() {
+  const { putDownTask } = useTask();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -33,15 +33,15 @@ export default function TaskPage({addCard}) {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async () => {
-    //  e.preventDefault();
+  const handleTask = async (e) => {
+     e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
       putDownTask(data.task);
       navigate(appRoutes.MAIN);
     });
   };
-  const creatTaskBtn = () => {
+  const creatTaskBtn = ({addCard}) => {
     addCard();
     handleFormSubmit();
     handleTask();

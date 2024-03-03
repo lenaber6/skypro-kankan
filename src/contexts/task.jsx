@@ -9,18 +9,18 @@ function getTaskFromLocalStorage() {
   }
 }
 
-export const UserContext = createContext(null);
-export const UserProvider = ({ children }) => {
+export const TaskContext = createContext(null);
+export const TaskProvider = ({ children }) => {
   const [task, setTask] = useState(getTaskFromLocalStorage());
 
  
-  const putDownTask = (newTask) => {
+  function putDownTask(newTask) {
     setTask(newTask);
     localStorage.setItem("task", JSON.stringify(newTask));
   }
   return (
-    <UserContext.Provider value={{ task, putDownTask }}>
+    <TaskContext.Provider value={{ task, putDownTask }}>
       {children}
-    </UserContext.Provider>
+    </TaskContext.Provider>
   );
 };

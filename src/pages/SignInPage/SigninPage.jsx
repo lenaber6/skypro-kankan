@@ -8,7 +8,7 @@ import * as S from "./SigninPage.styled";
 import { useUser } from "../../hooks/useUser";
 
 export default function SigninPage() {
-  const {login} = useUser()
+  const {login} = useUser();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ login: "", password: "" });
 
