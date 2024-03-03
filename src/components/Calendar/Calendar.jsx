@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+// import { DayPicker } from 'react-day-picker';
 import "react-day-picker/dist/style.css";
 import ru from "date-fns/locale/ru";
-import { Calendaric, CategoriesP, ChooseDate} from './Calendar.styled';
+import { CalendarCustom, Calendaric, CategoriesP, ChooseDate} from './Calendar.styled';
 
 export default function Calendar({selectedDate, setSelectedDate}) {
  
@@ -13,7 +13,7 @@ export default function Calendar({selectedDate, setSelectedDate}) {
   return (
     <Calendaric>
       <CategoriesP>Даты</CategoriesP>
-    <DayPicker
+    <CalendarCustom locale={ru}
       mode="single"
       selected={selectedDate}
       onSelect={setSelectedDate}

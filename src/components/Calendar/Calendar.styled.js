@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { DayPicker } from 'react-day-picker';
+
 
 export const Calendaric = styled.div`
   margin-bottom: 20px;
@@ -7,8 +9,7 @@ export const Calendaric = styled.div`
   line-height: 1px;
   color: #94a6be;
   letter-spacing: -0.14px;
-  --rdp-cell-size: 30px;
-  --rdp-caption-font-size: 10px;
+ 
 `;
 export const CategoriesP = styled.p`
   margin-bottom: 14px;
@@ -20,6 +21,11 @@ export const CategoriesP = styled.p`
   white-space: nowrap;
 `;
 export const ChooseDate = styled.p`
-  margin-left: 11px;
+  margin-left: 7px;
+  margin-top: 10px;
+`;
+export const CalendarCustom = styled(DayPicker)`
+    --rdp-cell-size: 30px;
+    --rdp-caption-font-size: 14px;
 `;
 
