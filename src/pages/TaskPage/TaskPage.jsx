@@ -7,7 +7,7 @@ import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
 export default function TaskPage() {
-  const { setTask } = useUser();
+  const { putDownTask } = useUser();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -16,8 +16,8 @@ export default function TaskPage() {
     description: "",
     topic: "",
   });
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleFormSubmit = () => {
+    // e.preventDefault();
     const taskData = {
       ...newTask,
       date: selectedDate,
@@ -33,11 +33,11 @@ export default function TaskPage() {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async (e) => {
-    e.preventDefault();
+  const handleTask = async () => {
+    // e.preventDefault();
     await postTodo(newTask).then((data) => {
       console.log(data);
-      creatTask(data.task);
+      putDownTask(data.task);
       navigate(appRoutes.MAIN);
     });
   };
