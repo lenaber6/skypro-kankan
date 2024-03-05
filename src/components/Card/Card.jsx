@@ -1,6 +1,7 @@
 import * as S from "./Card.styled.js";
 import {topicHeader} from "../../lib/topic.js";
 import { Link } from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes.js";
 
 function Card({date, topic, title, _id}) {
     return (
@@ -10,13 +11,13 @@ function Card({date, topic, title, _id}) {
                     <S.CardTopic $themeColor = {topicHeader[topic]}>
                         <S.TopicText>{topic}</S.TopicText>
                     </S.CardTopic>
-                    <a href="#popBrowse" target="_self">
+                    <Link to={appRoutes.TASK} target="_self">
                         <S.CardBtn>
                             <div></div>
                             <div></div>
                             <div></div>
                         </S.CardBtn>
-                    </a>
+                    </Link>
                 </S.CardsGroup>
                 <S.CardContent>
                     <Link to={`task/${_id}`}>

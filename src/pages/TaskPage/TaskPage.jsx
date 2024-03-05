@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTask } from "../../hooks/useUser";
 import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
+import { UserContext } from "../../contexts/user";
 
 export default function TaskPage() {
   const { putDownTask } = useTask();
@@ -16,13 +17,22 @@ export default function TaskPage() {
     description: "",
     topic: "",
   });
-  const handleFormSubmit = () => {
-    // e.preventDefault();
+  // Функция уже вызывается при нажатии на кнопку отправки
+  const handleFormSubmit = async() => {
+    //  e.preventDefault();
     const taskData = {
       ...newTask,
       date: selectedDate,
     };
     console.log(taskData);
+    // В ней же вызываем postTodo и передаём нужные данные
+    await postTodo({
+      // В task передаём объект с данными задачи
+      task: taskData,
+      // В token передаём токен, который получаем из пользователя
+      // Самого пользователя получаем из контекста
+      token: UserContext,
+    })
   };
   const handleInputChange = (e) => {
     //Ф-ия, чтобы обновлять состояние с новыми введёнными в поля ввода данными
@@ -33,9 +43,9 @@ export default function TaskPage() {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async () => {
+  const handleTask = async (taskData) => {
     //  e.preventDefault();
-    await postTodo(newTask).then((data) => {
+    await postTodo(taskData).then((data) => {
       console.log(data);
       putDownTask(data.task);
       navigate(appRoutes.MAIN);
