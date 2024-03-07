@@ -22,7 +22,7 @@ Authorization: `Bearer ${token}`,
 
 //Добавить задачу в список
 // Принимает объект с данными задачи  и токен
-export async function postTodo({task, token}) {
+export async function postTodo(task, token) {
     const response = await fetch(mainHostUrl, {
         headers: {
 Authorization: `Bearer ${token}`,
