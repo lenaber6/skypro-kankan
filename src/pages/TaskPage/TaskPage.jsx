@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTask } from "../../hooks/useUser";
 import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
-import { UserContext } from "../../contexts/user";
 
 export default function TaskPage() {
   const { putDownTask } = useTask();
@@ -18,7 +17,7 @@ export default function TaskPage() {
     topic: "",
   });
   // Функция уже вызывается при нажатии на кнопку отправки
-  const handleFormSubmit = async() => {
+  const handleFormSubmit = async(user) => {
     //  e.preventDefault();
     const taskData = {
       ...newTask,
@@ -31,7 +30,7 @@ export default function TaskPage() {
       task: taskData,
       // В token передаём токен, который получаем из пользователя
       // Самого пользователя получаем из контекста
-      token: UserContext,
+      token: user.token,
     })
   };
   const handleInputChange = (e) => {

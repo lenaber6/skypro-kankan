@@ -22,7 +22,7 @@ Authorization: `Bearer ${token}`,
 
 //Добавить задачу в список
 // Принимает объект с данными задачи  и токен
-export async function postTodo(task, token) {
+export async function postTodo({task, token}) {
     const response = await fetch(mainHostUrl, {
         headers: {
 Authorization: `Bearer ${token}`,
@@ -39,14 +39,16 @@ Authorization: `Bearer ${token}`,
 }
 
 // Изменить задачу
-export async function putTodo({text, _id, token}) {
+export async function putTodo({task, _id, token}) {
     const response = await fetch(mainHostUrl + `/${_id}`, {
         headers: {
 Authorization: `Bearer ${token}`,
         },
         method: "PUT",
         body: JSON.stringify({
-            text,
+            task,
+            _id,
+            token,
         }),
     });
     if (!response.status === 201) {
@@ -56,14 +58,16 @@ Authorization: `Bearer ${token}`,
     return data;
 }
 // Удалить задачу
-export async function deleteTodo({text, _id, token}) {
+export async function deleteTodo({task, _id, token}) {
     const response = await fetch(mainHostUrl + `/${_id}`, {
         headers: {
 Authorization: `Bearer ${token}`,
         },
         method: "DELETE",
         body: JSON.stringify({
-            text,
+            task,
+            _id,
+            token,
         }),
     });
     if (!response.status === 201) {
