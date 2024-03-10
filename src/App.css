@@ -709,9 +709,9 @@ body {
   display: none;
 }
 
-._dark {
+/* ._dark {
   display: none;
-}
+} */
 
 /* .header {
   width: 100%;
@@ -729,9 +729,9 @@ body {
   left: 0;
   padding: 0 10px;
 } */
-.header__logo img {
+/* .header__logo img {
   width: 85px;
-}
+} */
 /* .header__nav {
   max-width: 290px;
   padding: 0;

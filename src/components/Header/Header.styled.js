@@ -17,6 +17,15 @@ export const HeaderBlock = styled.div`
   left: 0;
   padding: 0 10px;
 `;
+export const HeaderLogoImg = styled.img`
+ width: 85px;
+`;
+export const HeaderLogoShowLight = styled.div`
+
+`;
+export const HeaderLogoDark = styled.div`
+display: none;
+`;
 export const HeaderNav = styled.nav`
   max-width: 290px;
   padding: 0;
@@ -54,19 +63,14 @@ export const PopUserSetMail = styled.p`
   letter-spacing: -0.14px;
   margin-bottom: 10px;
 `;
-export const PopUserSetTheme = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  p {
-  color: #000;
+export const PopUserSetThemeP = styled.p`
+ color: #000;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
-}
-input[type=checkbox] {
-  position: relative;
+`;
+export const PopUserSetThemeInput = styled.input`
+position: relative;
   width: 24px;
   height: 13px;
   border-radius: 100px;
@@ -75,9 +79,13 @@ input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-          
-}
-::before {
+`;
+export const PopUserSetTheme = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  ::before {
   content: "";
   position: absolute;
   top: 1px;
@@ -88,7 +96,7 @@ input[type=checkbox] {
   background-color: #94A6BE;
   transition: 0.5s;
 }
-input:checked[type=checkbox]::before {
+:checked[type=checkbox]::before {
   left: 12px;
 }
 `;
@@ -142,11 +150,11 @@ export const HeaderUser = styled.div`
 `;
 export const ExitButton = styled.span`
 
-a {
+/* a {
   color: #565EEF;
-}
+} */
 :hover {
-  background-color: #33399b;
+  background-color:#565EEF;
   color: #FFFFFF;
 }
 `;

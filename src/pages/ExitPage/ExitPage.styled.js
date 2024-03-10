@@ -67,20 +67,12 @@ export const PopExitYes = styled.button`
   letter-spacing: -0.14px;
   color: #FFFFFF;
   margin-right: 10px;
-  a {
-  width: 100%;
-  height: 100%;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 :hover {
   background-color: #33399b;
 }
 `;
 export const PopExitNo = styled.button`
-  width: 153px;
+  width: 115px;
   height: 30px;
   background-color: transparent;
   border-radius: 4px;
@@ -93,20 +85,15 @@ export const PopExitNo = styled.button`
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #FFFFFF;
-  a {
-  width: 100%;
-  height: 100%;
   color: #565EEF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   :hover {
-  background-color: #33399b;
+  background-color: #565EEF;
   color: #FFFFFF;
-}
-a {
-  color: #FFFFFF;
-}
-}
-`;
+}`;
+export const ButtonNo = styled.span`
+:hover {
+background-color: #565EEF;
+color: #FFFFFF;
+}`
+
+  

@@ -33,6 +33,16 @@ export const PopBrowseBlock = styled.div`
   border: 0.7px solid #d4dbe5;
   position: relative;
 `;
+export const PopBrowseContent = styled.div`
+  display: block;
+  text-align: left;
+`;
+export const PopBrowseTopBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+`;
 export const PopBrowseTtl = styled.h3`
   color: #000;
   font-size: 20px;
@@ -51,16 +61,6 @@ export const CategoriesThemeTopOrangeActiveCategory = styled.div`
   color: #ff6d00;
   opacity: 1 !important;
   display: block;
-`;
-export const PopBrowseContent = styled.div`
-  display: block;
-  text-align: left;
-`;
-export const PopBrowseTopBlock = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
 `;
 export const WebDesign = styled.p`
   background-color: #ffe4c2;
@@ -81,19 +81,6 @@ export const StatusThemes = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-`;
-export const StatusThemeHide = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-`;
-export const StatusThemeP = styled.p`
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
 `;
 export const StatusThemeGray = styled.div`
   border-radius: 24px;
@@ -154,14 +141,6 @@ export const FormBrowseArea = styled.textarea`
     letter-spacing: -0.14px;
   }
 `;
-export const CategoriesPSbttl = styled.p`
-  margin-bottom: 14px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`;
-
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -169,13 +148,21 @@ export const PopBrowseBtnBrowse = styled.div`
   justify-content: space-between;
   margin-right: 8px;
 `;
-export const BtnGroup = styled.div`
+export const BtnBrowse = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   margin-right: 8px;
-  width: 100%;
-  margin-right: 0px;
+  gap: 8px;
+  height: 30px;
+`;
+export const BtnGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-right: 8px;
+  width: 100%;
+  margin-right: 0px;
 `;
 export const BtnBrowseEditBtnBor = styled.button`
   height: 30px;
@@ -187,6 +174,7 @@ export const BtnBrowseEditBtnBor = styled.button`
   background: transparent;
   color: #565eef;
   cursor: pointer;
+  outline: none;
   :hover {
     background-color: #33399b;
     color: #ffffff;
@@ -194,8 +182,11 @@ export const BtnBrowseEditBtnBor = styled.button`
 `;
 export const A = styled.span`
   color: #565eef;
-  text-decoration: none;
   cursor: pointer;
+  outline: none;
+  :hover {
+  background-color: #33399b;
+}
 `;
 export const BtnBrowseDeleteBtnBor = styled.button`
   height: 30px;
@@ -219,50 +210,25 @@ export const BtnBrowseCloseBtnBg = styled.button`
   border: none;
   outline: none;
   color: #ffffff;
+  cursor: pointer;
   :hover {
     background-color: #33399b;
   }
-`;
-export const BtnBrowse = styled.div`
-  display: flex;
-  margin-right: 8px;
-  gap: 8px;
-  height: 30px;
 `;
 export const ABg = styled.span`
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0 14px;
-`;
-export const PopBrowseBtnEditHide = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
-  margin-right: 8px;
-`;
-export const BtnEditDeleteBtnBor = styled.button`
+  width: 132px;
+  background-color: #565eef;
   border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565eef);
+  border: 0;
   outline: none;
-  background: transparent;
-  color: #565eef;
-  :hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
-`;
-export const BtnEditCloseBtnBg = styled.span`
-  border-radius: 4px;
-  background: #565eef;
-  border: none;
-  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
   color: #ffffff;
-  cursor: pointer;
+  float: right;
+  a {
+  color: #565EEF;
+}
   :hover {
     background-color: #33399b;
   }

@@ -7,11 +7,12 @@ function Card({date, topic, title, _id}) {
     return (
         <S.CardsItem>
             <S.CardsCard>
+            <Link to={appRoutes.WATCHTASK} target="_self">
                 <S.CardsGroup>
                     <S.CardTopic $themeColor = {topicHeader[topic]}>
                         <S.TopicText>{topic}</S.TopicText>
                     </S.CardTopic>
-                    <Link to={appRoutes.TASK} target="_self">
+                    <Link to={appRoutes.WATCHTASK} target="_self">
                         <S.CardBtn>
                             <div></div>
                             <div></div>
@@ -20,7 +21,7 @@ function Card({date, topic, title, _id}) {
                     </Link>
                 </S.CardsGroup>
                 <S.CardContent>
-                    <Link to={`task/${_id}`}>
+                    <Link to={`watchtask/${_id}`}>
                         <S.CardTitle>{title}</S.CardTitle>
                     </Link>
                     <S.CardDate>
@@ -38,6 +39,8 @@ function Card({date, topic, title, _id}) {
                         <p>{date}</p>
                     </S.CardDate>
                 </S.CardContent>
+            
+            </Link>
             </S.CardsCard>
         </S.CardsItem>
     )

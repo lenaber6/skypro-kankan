@@ -25,7 +25,9 @@ export default function ExitPage() {
                 Да, выйти
               </S.PopExitYes>
               <Link to={appRoutes.MAIN}>
-                <S.PopExitNo id="exitNo">Нет, остаться</S.PopExitNo>
+                <S.ButtonNo>
+                  <S.PopExitNo id="exitNo">Нет, остаться</S.PopExitNo>
+                </S.ButtonNo>
               </Link>
             </S.PopExitFormGroup>
           </form>

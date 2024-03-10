@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
-import * as S from "./EditTaskPage.styled";
+import * as S from "./WatchTaskPage.styled";
 import { Link } from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes";
 
-export default function EditTaskPage() {
+export default function WatchTaskPage() {
   const [selectedDate, setSelectedDate] = useState(null);
 
   return (
@@ -17,25 +18,12 @@ export default function EditTaskPage() {
                 <S.WebDesign>Web Design</S.WebDesign>
               </S.CategoriesThemeTopOrangeActiveCategory>
             </S.PopBrowseTopBlock>
-
             <S.PopBrowseStatus>
               <S.StatusPSbttl>Статус</S.StatusPSbttl>
               <S.StatusThemes>
-                <S.StatusThemeHide>
-                  <S.StatusThemeP>Без статуса</S.StatusThemeP>
-                </S.StatusThemeHide>
                 <S.StatusThemeGray>
                   <S.StatusThemePGray>Нужно сделать</S.StatusThemePGray>
                 </S.StatusThemeGray>
-                <S.StatusThemeHide>
-                  <S.StatusThemeP>В работе</S.StatusThemeP>
-                </S.StatusThemeHide>
-                <S.StatusThemeHide>
-                  <S.StatusThemeP>Тестирование</S.StatusThemeP>
-                </S.StatusThemeHide>
-                <S.StatusThemeHide>
-                  <S.StatusThemeP>Готово</S.StatusThemeP>
-                </S.StatusThemeHide>
               </S.StatusThemes>
             </S.PopBrowseStatus>
 
@@ -46,48 +34,38 @@ export default function EditTaskPage() {
                   <S.FormBrowseArea
                     name="text"
                     id="textArea01"
-                    // readOnly
-                    placeholder="Введите описание задачи..."
+                    placeholder="Описание задачи..."
                   ></S.FormBrowseArea>
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
+
               <Calendar
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}
               />
             </S.PopBrowseWrap>
 
-            <S.PopBrowseBtnEditHide>
+            <S.PopBrowseBtnBrowse>
               <S.BtnGroup>
-              <S.BtnBrowse>
-
-                <S.BtnBrowseCloseBtnBg>
-                  <Link to={"#"}>
-                    <S.ABg>Сохранить</S.ABg>
-                  </Link>
-                </S.BtnBrowseCloseBtnBg>
-
+                <S.BtnBrowse>
                 <S.BtnBrowseEditBtnBor>
-                  <Link to={"#"}>
-                    <S.A>Отменить</S.A>
+                  <Link to={appRoutes.EDITTASK}>
+                    <S.A>Редактировать задачу</S.A>
                   </Link>
                 </S.BtnBrowseEditBtnBor>
-                <S.BtnBrowseDeleteBtnBor id="btnDelete">
+                <S.BtnBrowseDeleteBtnBor>
                   <Link to={"#"}>
                     <S.A>Удалить задачу</S.A>
                   </Link>
                 </S.BtnBrowseDeleteBtnBor>
                 </S.BtnBrowse>
-
                 <S.BtnBrowseCloseBtnBg>
                 <Link to={"#"}>
                   <S.ABg>Закрыть</S.ABg>
                 </Link>
               </S.BtnBrowseCloseBtnBg>
               </S.BtnGroup>
-
-              
-            </S.PopBrowseBtnEditHide>
+            </S.PopBrowseBtnBrowse>
           </S.PopBrowseContent>
         </S.PopBrowseBlock>
       </S.PopBrowseContainer>

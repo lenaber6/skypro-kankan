@@ -9,6 +9,8 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import "./App.css";
 import SigninPage from "./pages/SigninPage/SigninPage";
+import WatchTaskPage from "./pages/WatchTaskPage/WatchTaskPage";
+import EditTaskPage from "./pages/EditTaskPage/EditTaskPage";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
       <Route element={<PrivateRoute  />}>
         <Route path={appRoutes.MAIN} element={<MainPage  />} >
           <Route path={appRoutes.TASK} element={<TaskPage />} />
+          <Route path={appRoutes.WATCHTASK} element={<WatchTaskPage />} />
+          <Route path={appRoutes.EDITTASK} element={<EditTaskPage />} />
           <Route  path={appRoutes.EXIT} element={<ExitPage />} />
           </Route>
       </Route>
