@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { getTodos } from "../../api";
 import { Wrapper } from "../../styled/common/common.styled";
+import { useUser } from "../../hooks/useUser";
 
 const statusList = [
   "Без статуса",
@@ -15,10 +16,10 @@ const statusList = [
   "Готово",                                                                                                                                                                                                                                                                            
 ];
 
-function MainPage({ user }) {
+function MainPage() {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+  const {user} = useUser()
   useEffect(() => {
     getTodos({ token: user.token }).then((todos) => {
       //console.log(todos); // тут приходят tasks 47

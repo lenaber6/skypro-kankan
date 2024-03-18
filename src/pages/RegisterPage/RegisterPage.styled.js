@@ -111,7 +111,7 @@ export const P = styled.p`
   line-height: 150%;
   letter-spacing: -0.14px;
 `;
-export const A = styled.a`
+export const Span = styled.span`
   text-decoration: underline;
   font-family: "Roboto", sans-serif;
   cursor: pointer;

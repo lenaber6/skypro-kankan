@@ -1,12 +1,15 @@
 import "../../App.css";
 import { appRoutes } from "../../lib/appRoutes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { WrapperRegisterSignin } from "../../styled/common/common.styled";
 import { useState } from "react";
 import { signIn } from "../../api";
 import * as S from "./SigninPage.styled";
+import { useUser } from "../../hooks/useUser";
 
-export default function SigninPage({ login }) {
+export default function SigninPage() {
+  const {login} = useUser();
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ login: "", password: "" });
 
   const handleInputChange = (e) => {
@@ -22,6 +25,7 @@ export default function SigninPage({ login }) {
     e.preventDefault();
     await signIn(loginData).then((data) => {
       login(data.user);
+      navigate(appRoutes.MAIN);
     });
   };
 

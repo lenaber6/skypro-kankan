@@ -1,6 +1,8 @@
 export const appRoutes = {
     MAIN: "/",
-    TASK: "/task/:id", //динамический маршрут
+    TASK: "/task/:_id", //динамический маршрут
+    WATCHTASK: "/watchtask/:_id",
+    EDITTASK: "/edittask/:_id",
     SIGNIN: "/signin",
     REGISTER: "/register",
     EXIT: "/exit",

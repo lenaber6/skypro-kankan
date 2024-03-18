@@ -1,17 +1,21 @@
 import * as S from "./RegisterPage.styled.js";
 import { WrapperRegisterSignin } from "../../styled/common/common.styled.js";
 import { appRoutes } from "../../lib/appRoutes.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registration } from "../../api.js";
+import { useUser } from "../../hooks/useUser.js";
 
-export default function RegisterPage({register}) {
+export default function RegisterPage() {
+  const {login} = useUser()
+  const navigate = useNavigate();
+
   const [registerData, setRegisterData] = useState({
     name: "",
     login: "",
     password: "",
   });
-  const handleInputRegisterChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     setRegisterData({
@@ -21,10 +25,11 @@ export default function RegisterPage({register}) {
   };
   const handleRegister = async (e) => {
 	e.preventDefault();
-	console.log(registerData);
+	// console.log(registerData);
 	await registration(registerData).then((data) => {
-		console.log(data);
-		register(data.newUser);
+		// console.log(data);
+		login(data.user);
+    navigate(appRoutes.MAIN);
 	})
   }
   return (
@@ -36,7 +41,7 @@ export default function RegisterPage({register}) {
             <S.ModalFormLogin id="formLogUp" action="#">
               <S.ModalInput
                 value={registerData.name}
-                onChange={handleInputRegisterChange}
+                onChange={handleInputChange}
                 className="first-name"
                 type="text"
                 name="name"
@@ -45,7 +50,7 @@ export default function RegisterPage({register}) {
               ></S.ModalInput>
               <S.ModalInput
                 value={registerData.login}
-                onChange={handleInputRegisterChange}
+                onChange={handleInputChange}
                 className="login"
                 type="text"
                 name="login"
@@ -54,7 +59,7 @@ export default function RegisterPage({register}) {
               ></S.ModalInput>
               <S.ModalInput
                 value={registerData.password}
-                onChange={handleInputRegisterChange}
+                onChange={handleInputChange}
                 className="password-first"
                 type="password"
                 name="password"
@@ -71,7 +76,8 @@ export default function RegisterPage({register}) {
               <Link to={appRoutes.SIGNIN}>
                 <S.ModalFormGroup>
                   <S.P>
-                    Уже есть аккаунт? <S.A>Войдите здесь</S.A>
+                    Уже есть аккаунт? <S.Span
+                    >Войдите здесь</S.Span>
                   </S.P>
                 </S.ModalFormGroup>
               </Link>

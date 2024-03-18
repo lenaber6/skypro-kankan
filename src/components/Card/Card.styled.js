@@ -37,7 +37,6 @@ export const CardsCard = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
 `;
@@ -46,7 +45,7 @@ export const CardsGroup = styled.div`
   height: 20px;
   margin-bottom: 12px;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
 `;
 export const CardBtn = styled.div`
