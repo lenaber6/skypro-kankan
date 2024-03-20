@@ -94,8 +94,8 @@ export const FormNewInput = styled.input`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
- 
-  ::placeholder {
+
+  &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
@@ -116,14 +116,7 @@ export const FormNewArea = styled.textarea`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-  ::-moz-placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1px;
-    color: #94a6be;
-    letter-spacing: -0.14px;
-  }
-  ::placeholder {
+  &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
@@ -143,162 +136,10 @@ export const FormNewCreatButton = styled.button`
   line-height: 1;
   color: #ffffff;
   float: right;
-  :hover {
+  &:hover {
     background-color: #33399b;
   }
 `;
-// export const Calendar = styled.div`
-//   width: 160px;
-//   margin-bottom: 20px;
-//   color: #000;
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 1;
-//     --rdp-cell-size: 30px;
-//     --rdp-caption-font-size: 10px;
-// `;
-// export const CalendarTtl = styled.p`
-//   margin-bottom: 14px;
-//   padding: 0 7px;
-//   .subttl {
-//     color: #000;
-//     font-size: 14px;
-//     font-weight: 600;
-//     line-height: 1;
-//   }
-// `;
-// export const CalendarBlock = styled.div`
-//   display: block;
-// `;
-// export const CalendarNav = styled.div`
-//   width: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   margin-top: 14px;
-//   padding: 0 7px;
-// `;
-// export const CalendarMonth = styled.div`
-//   color: #94a6be;
-//   font-size: 14px;
-//   line-height: 25px;
-//   font-weight: 600;
-// `;
-// export const NavActions = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// `;
-// export const NavAction = styled.div`
-//   width: 18px;
-//   height: 25px;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-// export const NavActionSvg = styled.svg`
-//   fill: #94a6be;
-// `;
-// export const CalendarContent = styled.div`
-//   margin-bottom: 12px;
-// `;
-// export const CalendarDaysNames = styled.div`
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: space-between;
-//   margin: 7px 0;
-//   padding: 0 7px;
-// `;
-// export const CalendarDayName = styled.div`
-//   color: #94a6be;
-//   font-size: 10px;
-//   font-weight: 500;
-//   line-height: normal;
-//   letter-spacing: -0.2px;
-// `;
-// export const CalendarCells = styled.div`
-//   width: 182px;
-//   height: 126px;
-//   display: flex;
-//   flex-wrap: wrap;
-// `;
-// export const CalendarCell = styled.div`
-//   width: 22px;
-//   height: 22px;
-//   margin: 2px;
-//   border-radius: 50%;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   color: #94a6be;
-//   font-size: 10px;
-//   line-height: 1;
-//   letter-spacing: -0.2px;
-//   cursor: pointer;
-// `;
-// export const CalendarCellOtherMonth = styled.div`
-//   width: 22px;
-//   height: 22px;
-//   margin: 2px;
-//   border-radius: 50%;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   color: #94a6be;
-//   font-size: 10px;
-//   line-height: 1;
-//   letter-spacing: -0.2px;
-//   cursor: pointer;
-//   ._other-month {
-//     opacity: 0;
-//   }
-// `;
-// export const CalendarCellDay = styled.div`
-//   width: 22px;
-//   height: 22px;
-//   margin: 2px;
-//   border-radius: 50%;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   color: #94a6be;
-//   font-size: 10px;
-//   line-height: 1;
-//   letter-spacing: -0.2px;
-//   cursor: pointer;
-//   :hover {
-//     color: #94a6be;
-//     background-color: #eaeef6;
-//   }
-// `;
-// export const CalendarCellDayCurrent = styled.div`
-//   width: 22px;
-//   height: 22px;
-//   margin: 2px;
-//   border-radius: 50%;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   color: #94a6be;
-//   font-size: 10px;
-//   line-height: 1;
-//   letter-spacing: -0.2px;
-//   cursor: pointer;
-//   :hover {
-//     color: #94a6be;
-//     background-color: #eaeef6;
-//   }
-//   ._current {
-//     font-weight: 700;
-//   }
-// `;
-
 export const CategoriesP = styled.p`
   margin-bottom: 14px;
   color: #000;
@@ -308,10 +149,16 @@ export const CategoriesP = styled.p`
   white-space: nowrap;
 `;
 export const CategoriesThemes = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-start; */
+
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
 `;
 export const CategoriesThemeInput = styled.input`
   display: inline-block;
@@ -321,17 +168,31 @@ export const CategoriesThemeInput = styled.input`
   border-radius: 24px;
   margin-right: 7px;
   opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  /* &[type="radio"]:checked+label {
+    background-color: #d0ffb7;
+    border: 1px solid #1CA92E;
+} */
+
 `;
 export const WebDesignLabel = styled.label`
   background-color: #ffe4c2;
   color: #ff6d00;
-  opacity: 1 !important;
   display: inline-block;
   width: auto;
   height: 30px;
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    border: 1px solid #ffe4c2;
+  }
 `;
 export const ResearchLabel = styled.label`
   background-color: #b4fdd1;
@@ -342,6 +203,12 @@ export const ResearchLabel = styled.label`
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    border: 1px solid #b4fdd1;
+  }
 `;
 export const CopywritingLabel = styled.label`
   background-color: #e9d4ff;
@@ -352,6 +219,12 @@ export const CopywritingLabel = styled.label`
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    border: 1px solid #e9d4ff;
+  }
 `;
 export const ButtonDiv = styled.div`
   display: flex;

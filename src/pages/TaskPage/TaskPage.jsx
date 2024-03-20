@@ -1,16 +1,16 @@
 import { useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
 import * as S from "./TaskPage.styled";
-import { Link, useNavigate } from "react-router-dom";
-import { useTask, useUser } from "../../hooks/useUser";
+import { Link } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
 import { appRoutes } from "../../lib/appRoutes";
 import { postTodo } from "../../api";
 
 export default function TaskPage() {
   const { user } = useUser();
 
-  const { putDownTask } = useTask();
-  const navigate = useNavigate();
+  // const { putDownTask } = useTask();
+  // const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
   const [newTask, setNewTask] = useState({
@@ -19,6 +19,7 @@ export default function TaskPage() {
     topic: "",
   });
   // Функция уже вызывается при нажатии на кнопку отправки
+  // Функция handleFormSubmit отправляет данные в api
   const handleFormSubmit = async () => {
     //  e.preventDefault();
     const taskData = {
@@ -44,18 +45,18 @@ export default function TaskPage() {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const handleTask = async (taskData) => {
-    //  e.preventDefault();
-    await postTodo(taskData).then((data) => {
-      console.log(data);
-      putDownTask(data.task);
-      navigate(appRoutes.MAIN);
-    });
-  };
-  const creatTaskBtn = (taskData) => {
-    handleFormSubmit(taskData);
-    handleTask(taskData);
-  };
+  // const handleTask = async (taskData) => {
+  //   //  e.preventDefault();
+  //   await postTodo(taskData).then((data) => {
+  //     console.log(data);
+  //     putDownTask(data.task);
+  //     navigate(appRoutes.MAIN);
+  //   });
+  // };
+  // const creatTaskBtn = (taskData) => {
+  //   handleFormSubmit(taskData);
+  //   // handleTask(taskData);
+  // };
   return (
     <S.PopNewCard id="popNewCard">
       <S.PopNewCardContainer>
@@ -79,7 +80,7 @@ export default function TaskPage() {
                   onChange={handleInputChange}
                   id="formTitle"
                   placeholder="Введите название задачи..."
-                  autoFocus
+                   autoFocus
                 />
               </S.FormNewBlock>
               <S.FormNewBlock>
@@ -103,8 +104,9 @@ export default function TaskPage() {
           <S.CategoriesThemes>
             <S.CategoriesP>Категория</S.CategoriesP>
           </S.CategoriesThemes>
+          
           <S.CategoriesThemes>
-            <input
+            <S.CategoriesThemeInput
               type="radio"
               id="radio1"
               name="topic"
@@ -113,7 +115,7 @@ export default function TaskPage() {
             />
             <S.WebDesignLabel htmlFor="radio1">Web Design</S.WebDesignLabel>
 
-            <input
+            <S.CategoriesThemeInput
               type="radio"
               id="radio2"
               name="topic"
@@ -122,7 +124,7 @@ export default function TaskPage() {
             />
             <S.ResearchLabel htmlFor="radio2">Research</S.ResearchLabel>
 
-            <input
+            <S.CategoriesThemeInput
               type="radio"
               id="radio3"
               name="topic"
@@ -134,7 +136,7 @@ export default function TaskPage() {
             </S.CopywritingLabel>
           </S.CategoriesThemes>
           <S.ButtonDiv>
-            <S.FormNewCreatButton onClick={creatTaskBtn} id="btnCreate">
+            <S.FormNewCreatButton onClick={handleFormSubmit} id="btnCreate">
               Создать задачу
             </S.FormNewCreatButton>
           </S.ButtonDiv>

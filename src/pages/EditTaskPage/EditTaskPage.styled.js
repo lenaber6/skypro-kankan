@@ -82,6 +82,24 @@ export const StatusThemes = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 `;
+export const StatusThemesInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  /* &[type="radio"]:checked+label {
+    background-color: #d0ffb7;
+    border: 1px solid #1CA92E;
+} */
+
+`;
 export const StatusThemeHide = styled.div`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
@@ -89,29 +107,35 @@ export const StatusThemeHide = styled.div`
   padding: 11px 14px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
+  
+  &:hover {
+    background: #94a6be;
+  color: #ffffff;
+  }
 `;
+
 export const StatusThemeP = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
 `;
-export const StatusThemeGray = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-  background: #94a6be;
-  color: #ffffff;
-`;
-export const StatusThemePGray = styled.p`
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
-  background: #94a6be;
-  color: #ffffff;
-`;
+// export const StatusThemeGray = styled.div`
+//   border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94a6be;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
+//   background: #94a6be;
+//   color: #ffffff;
+// `;
+// export const StatusThemePGray = styled.p`
+//   font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+//   background: #94a6be;
+//   color: #ffffff;
+// `;
 export const PopBrowseWrap = styled.div`
   display: flex;
   align-items: flex-start;
@@ -146,7 +170,7 @@ export const FormBrowseArea = styled.textarea`
   letter-spacing: -0.14px;
   margin-top: 14px;
   height: 200px;
-  ::placeholder {
+  &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
@@ -167,37 +191,15 @@ export const PopBrowseBtnBrowse = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  margin-right: 8px;
 `;
 export const BtnGroup = styled.div`
-  margin-right: 8px;
   width: 100%;
   margin-right: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
-export const BtnBrowseEditBtnBor = styled.button`
-  height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565eef);
-  outline: none;
-  background: transparent;
-  color: #565eef;
-  cursor: pointer;
-  :hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
-`;
-export const A = styled.span`
-  color: #565eef;
-  text-decoration: none;
-  cursor: pointer;
-`;
-export const BtnBrowseDeleteBtnBor = styled.button`
+export const BtnBrowseCancelDeleteBtnBor = styled.button`
   height: 30px;
   margin-bottom: 10px;
   padding: 0 14px;
@@ -208,32 +210,40 @@ export const BtnBrowseDeleteBtnBor = styled.button`
   color: #565eef;
   cursor: pointer;
   outline: none;
+`;
+export const CancelDeleteButton = styled.span`
   :hover {
-    background-color: #33399b;
+    background-color: #565eef;
     color: #ffffff;
   }
 `;
-export const BtnBrowseCloseBtnBg = styled.button`
+export const BtnBrowseSafeCloseBtnBg = styled.button`
+  width: 110px;
+  height: 30px;
+  background-color: #565eef;
   border-radius: 4px;
-  background: #565eef;
-  border: none;
+  border: 0;
   outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
   color: #ffffff;
+  float: right;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const ButtonSafeClose = styled.span`
   :hover {
     background-color: #33399b;
   }
 `;
 export const BtnBrowse = styled.div`
   display: flex;
-  margin-right: 8px;
   gap: 8px;
   height: 30px;
-`;
-export const ABg = styled.span`
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0 14px;
 `;
 export const PopBrowseBtnEditHide = styled.div`
   display: flex;
@@ -242,28 +252,4 @@ export const PopBrowseBtnEditHide = styled.div`
   justify-content: space-between;
   height: 30px;
   margin-bottom: 10px;
-  padding: 0 14px;
-  margin-right: 8px;
-`;
-export const BtnEditDeleteBtnBor = styled.button`
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565eef);
-  outline: none;
-  background: transparent;
-  color: #565eef;
-  :hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
-`;
-export const BtnEditCloseBtnBg = styled.span`
-  border-radius: 4px;
-  background: #565eef;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  cursor: pointer;
-  :hover {
-    background-color: #33399b;
-  }
 `;

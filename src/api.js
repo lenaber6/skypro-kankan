@@ -110,17 +110,16 @@ export async function registration({ name, login,password}) {
 }
 
 //Авторизация
-export function signIn({login, password}) { // Ф-ия принимает деструктуризованный объект с 2мя ключами, которые пользователь вводит при запросе
-return fetch(userUrl + "/login", {  // Возвращается наш запрос с url юзера+ логин, как в API
-    method: "POST",                 // Метод Пост отправляет данные
-        body: JSON.stringify({      // Данные передаются с помощью body : логин и пароль
+export async function signIn({login, password}) { // Ф-ия принимает деструктуризованный объект с 2мя ключами, которые пользователь вводит при запросе
+    const response = await fetch(userUrl + "/login", {
+        method: "POST", // Метод Пост отправляет данные
+        body: JSON.stringify({
             login,
             password,
         }),
-    }).then((response) => {
-        if (response.status === 400) {
-            throw new Error("Введён неверный логин или пароль"); // Выбрасываем ошибку, если будут введены неверные данные
-        }
-        return response.json();     // Если всё нормально, то возвращаются данные из API
     });
+    if (response.status === 400) {
+        throw new Error("Введён неверный логин или пароль"); // Выбрасываем ошибку, если будут введены неверные данные
+    }
+    return await response.json();
 } 
