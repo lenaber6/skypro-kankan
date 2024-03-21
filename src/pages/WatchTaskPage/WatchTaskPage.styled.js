@@ -133,7 +133,7 @@ export const FormBrowseArea = styled.textarea`
   letter-spacing: -0.14px;
   margin-top: 14px;
   height: 200px;
-  ::placeholder {
+  &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
@@ -164,7 +164,7 @@ export const BtnGroup = styled.div`
   width: 100%;
   margin-right: 0px;
 `;
-export const BtnBrowseEditBtnBor = styled.button`
+export const BtnBrowseEditDeleteBtnBor = styled.button`
   height: 30px;
   margin-bottom: 10px;
   padding: 0 14px;
@@ -175,23 +175,17 @@ export const BtnBrowseEditBtnBor = styled.button`
   color: #565eef;
   cursor: pointer;
   outline: none;
+`;
+export const ButtonDeleteEdit = styled.span`
   :hover {
-    background-color: #33399b;
+    background-color: #565eef;
     color: #ffffff;
   }
-`;
-export const A = styled.span`
-  color: #565eef;
-  cursor: pointer;
-  outline: none;
-  :hover {
-  background-color: #33399b;
-}
 `;
 export const BtnBrowseDeleteBtnBor = styled.button`
-  height: 30px;
   margin-bottom: 10px;
   padding: 0 14px;
+  height: 30px;
   border-radius: 4px;
   border: 0.7px solid var(--palette-navy-60, #565eef);
   outline: none;
@@ -199,24 +193,10 @@ export const BtnBrowseDeleteBtnBor = styled.button`
   color: #565eef;
   cursor: pointer;
   outline: none;
-  :hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
 `;
 export const BtnBrowseCloseBtnBg = styled.button`
-  border-radius: 4px;
-  background: #565eef;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  cursor: pointer;
-  :hover {
-    background-color: #33399b;
-  }
-`;
-export const ABg = styled.span`
   width: 132px;
+  height: 30px;
   background-color: #565eef;
   border-radius: 4px;
   border: 0;
@@ -226,9 +206,13 @@ export const ABg = styled.span`
   line-height: 1;
   color: #ffffff;
   float: right;
-  a {
-  color: #565EEF;
-}
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const ButtonClose = styled.span`
   :hover {
     background-color: #33399b;
   }

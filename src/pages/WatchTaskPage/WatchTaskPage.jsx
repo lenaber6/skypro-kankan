@@ -48,22 +48,27 @@ export default function WatchTaskPage() {
             <S.PopBrowseBtnBrowse>
               <S.BtnGroup>
                 <S.BtnBrowse>
-                <S.BtnBrowseEditBtnBor>
                   <Link to={appRoutes.EDITTASK}>
-                    <S.A>Редактировать задачу</S.A>
+                    <S.ButtonDeleteEdit>
+                      <S.BtnBrowseEditDeleteBtnBor>
+                        Редактировать задачу
+                      </S.BtnBrowseEditDeleteBtnBor>
+                    </S.ButtonDeleteEdit>
                   </Link>
-                </S.BtnBrowseEditBtnBor>
-                <S.BtnBrowseDeleteBtnBor>
                   <Link to={"#"}>
-                    <S.A>Удалить задачу</S.A>
+                    <S.ButtonDeleteEdit>
+                      <S.BtnBrowseEditDeleteBtnBor>
+                        Удалить задачу
+                      </S.BtnBrowseEditDeleteBtnBor>
+                    </S.ButtonDeleteEdit>
                   </Link>
-                </S.BtnBrowseDeleteBtnBor>
                 </S.BtnBrowse>
-                <S.BtnBrowseCloseBtnBg>
-                <Link to={"#"}>
-                  <S.ABg>Закрыть</S.ABg>
+
+                <Link to={appRoutes.MAIN}>
+                  <S.ButtonClose>
+                    <S.BtnBrowseCloseBtnBg>Закрыть</S.BtnBrowseCloseBtnBg>
+                  </S.ButtonClose>
                 </Link>
-              </S.BtnBrowseCloseBtnBg>
               </S.BtnGroup>
             </S.PopBrowseBtnBrowse>
           </S.PopBrowseContent>

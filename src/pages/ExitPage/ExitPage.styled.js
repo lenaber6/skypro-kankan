@@ -86,10 +86,7 @@ export const PopExitNo = styled.button`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #565EEF;
-  :hover {
-  background-color: #565EEF;
-  color: #FFFFFF;
-}`;
+`;
 export const ButtonNo = styled.span`
 :hover {
 background-color: #565EEF;

@@ -2,9 +2,21 @@ import { useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
 import * as S from "./EditTaskPage.styled";
 import { Link } from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes";
 
 export default function EditTaskPage() {
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const [newStatus, setNewStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewStatus({
+      ...newStatus,
+      [name]: value,
+    });
+    
+  };
 
   return (
     <S.PopBrowse id="popBrowse">
@@ -20,21 +32,59 @@ export default function EditTaskPage() {
 
             <S.PopBrowseStatus>
               <S.StatusPSbttl>Статус</S.StatusPSbttl>
+
               <S.StatusThemes>
+                <S.StatusThemesInput
+                  type="radio"
+                  id="radio1"
+                  name="status"
+                  value="Без статуса"
+                  onChange={handleInputChange}
+                />
                 <S.StatusThemeHide>
-                  <S.StatusThemeP>Без статуса</S.StatusThemeP>
+                  <S.StatusThemeP htmlFor="radio1">Без статуса</S.StatusThemeP>
                 </S.StatusThemeHide>
-                <S.StatusThemeGray>
-                  <S.StatusThemePGray>Нужно сделать</S.StatusThemePGray>
-                </S.StatusThemeGray>
+                <S.StatusThemesInput
+                  type="radio"
+                  id="radio2"
+                  name="status"
+                  value="Нужно сделать"
+                  onChange={handleInputChange}
+                />
                 <S.StatusThemeHide>
-                  <S.StatusThemeP>В работе</S.StatusThemeP>
+                  <S.StatusThemeP htmlFor="radio2">
+                    Нужно сделать
+                  </S.StatusThemeP>
                 </S.StatusThemeHide>
+                <S.StatusThemesInput
+                  type="radio"
+                  id="radio3"
+                  name="status"
+                  value="В работе"
+                  onChange={handleInputChange}
+                />
                 <S.StatusThemeHide>
-                  <S.StatusThemeP>Тестирование</S.StatusThemeP>
+                  <S.StatusThemeP htmlFor="radio3">В работе</S.StatusThemeP>
                 </S.StatusThemeHide>
+                <S.StatusThemesInput
+                  type="radio"
+                  id="radio4"
+                  name="status"
+                  value="Тестирование"
+                  onChange={handleInputChange}
+                />
                 <S.StatusThemeHide>
-                  <S.StatusThemeP>Готово</S.StatusThemeP>
+                  <S.StatusThemeP htmlFor="radio4">Тестирование</S.StatusThemeP>
+                </S.StatusThemeHide>
+                <S.StatusThemesInput
+                  type="radio"
+                  id="radio5"
+                  name="status"
+                  value="Готово"
+                  onChange={handleInputChange}
+                />
+                <S.StatusThemeHide>
+                  <S.StatusThemeP htmlFor="radio5">Готово</S.StatusThemeP>
                 </S.StatusThemeHide>
               </S.StatusThemes>
             </S.PopBrowseStatus>
@@ -59,34 +109,40 @@ export default function EditTaskPage() {
 
             <S.PopBrowseBtnEditHide>
               <S.BtnGroup>
-              <S.BtnBrowse>
+                <S.BtnBrowse>
+                  <Link to={"#"}>
+                    <S.ButtonSafeClose>
+                      <S.BtnBrowseSafeCloseBtnBg>
+                        Сохранить
+                      </S.BtnBrowseSafeCloseBtnBg>
+                    </S.ButtonSafeClose>
+                  </Link>
 
-                <S.BtnBrowseCloseBtnBg>
-                  <Link to={"#"}>
-                    <S.ABg>Сохранить</S.ABg>
+                  <Link to={appRoutes.MAIN}>
+                    <S.CancelDeleteButton>
+                      <S.BtnBrowseCancelDeleteBtnBor>
+                        Отменить
+                      </S.BtnBrowseCancelDeleteBtnBor>
+                    </S.CancelDeleteButton>
                   </Link>
-                </S.BtnBrowseCloseBtnBg>
 
-                <S.BtnBrowseEditBtnBor>
                   <Link to={"#"}>
-                    <S.A>Отменить</S.A>
+                    <S.CancelDeleteButton>
+                      <S.BtnBrowseCancelDeleteBtnBor id="btnDelete">
+                        Удалить задачу
+                      </S.BtnBrowseCancelDeleteBtnBor>
+                    </S.CancelDeleteButton>
                   </Link>
-                </S.BtnBrowseEditBtnBor>
-                <S.BtnBrowseDeleteBtnBor id="btnDelete">
-                  <Link to={"#"}>
-                    <S.A>Удалить задачу</S.A>
-                  </Link>
-                </S.BtnBrowseDeleteBtnBor>
                 </S.BtnBrowse>
 
-                <S.BtnBrowseCloseBtnBg>
-                <Link to={"#"}>
-                  <S.ABg>Закрыть</S.ABg>
+                <Link to={appRoutes.MAIN}>
+                  <S.ButtonSafeClose>
+                    <S.BtnBrowseSafeCloseBtnBg>
+                      Закрыть
+                    </S.BtnBrowseSafeCloseBtnBg>
+                  </S.ButtonSafeClose>
                 </Link>
-              </S.BtnBrowseCloseBtnBg>
               </S.BtnGroup>
-
-              
             </S.PopBrowseBtnEditHide>
           </S.PopBrowseContent>
         </S.PopBrowseBlock>
