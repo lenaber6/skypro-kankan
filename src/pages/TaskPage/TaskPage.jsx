@@ -26,7 +26,7 @@ export default function TaskPage() {
       ...newTask,
       date: selectedDate,
     };
-    console.log(taskData);
+    // console.log(taskData);
     // В ней же вызываем postTodo и передаём нужные данные
     await postTodo({
       // В task передаём объект с данными задачи
